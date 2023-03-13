@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { StyleSheet, Alert, FlatList, View, Text, Image } from 'react-native';
+import { StyleSheet, Alert, FlatList, Text, Image, View } from 'react-native';
 
 import { SongItem } from './types';
 const styles = StyleSheet.create({
@@ -8,17 +7,20 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
-        paddingVertical: 14,
+        height: 53,
+        borderRadius: 5,
     },
     image: {
-        width: 54,
-        height: 54,
-        borderRadius: 20,
-        marginHorizontal: 14,
+        width: 53,
+        height: 53,
+        borderRadius: 5,
     },
-    border: {
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: 'grey',
+    name: {
+        fontSize: 16,
+        fontWeight: '700',
+        letterSpacing: 0.6,
+        lineHeight: 20,
+        color: '#FFFFFF',
     },
 });
 
@@ -27,7 +29,7 @@ export const SongListItem = ({ mediaUrl, id, name, author }: SongItem) => {
         <View style={[styles.root]}>
             <Image style={styles.image} source={{ uri: mediaUrl }} />
             <View>
-                <Text>{name}</Text>
+                <Text style={styles.name}>{name}</Text>
                 <Text>{author}</Text>
             </View>
         </View>
